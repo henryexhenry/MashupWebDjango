@@ -7,14 +7,15 @@ def heroView(request):
 
     ms = marvelService()
     allHeroNames = ms.getAllHeroNames()
-    Heroes = []
     hero_list = []
 
-    for _ in range(6):
-        hero_list.append(allHeroNames[random.randint(0,1490)])
+    while len(hero_list) < 6 :
+        name = allHeroNames[random.randint(0,1490)]
+        hero = ms.getHeroByName(name)
+        if hero['thumbnail'] != 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg':
+            if hero['series']:
+                if hero['description']:
+                    if hero not in hero_list:
+                        hero_list.append(hero)
 
-    for h_name in hero_list:
-        h = ms.getHeroByName(h_name)
-        Heroes.append(h)
-
-    return render(request, 'hero.html', {'hero_list' : Heroes})
+    return render(request, 'hero.html', {'hero_list' : hero_list})
