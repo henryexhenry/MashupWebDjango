@@ -15,7 +15,6 @@ def heroView(request):
 
     for h_name in hero_list:
         h = ms.getHeroByName(h_name)
-        h['thumbnail']['path'] += '.' + h['thumbnail']['extension']
         Heroes.append(h)
 
     return render(request, 'hero.html', {'hero_list' : Heroes})
