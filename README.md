@@ -19,10 +19,10 @@
         - Random gen 6 heroes from database
     - Deployment (pythonanywhere)
 - ## Todos
+    - SEO (sitemap?)
     - two more APIs (douban?, zhihu?)
     - hero detail page
         - click hero in home, redirect to detail page
-    - SEO (sitemap?)
     - Google indexing
     - the frontend layout
 - ## DDL
