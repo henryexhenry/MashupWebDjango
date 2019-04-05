@@ -17,33 +17,26 @@
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
-            <h1 style="margin-top:30px">Heroes for MA4</h1>
+            <h1 style="margin-top:30px">News for MA4</h1>
             <div class="listcontainer">
                 <div class="row">
-
-                    {% csrf_token %} {% for hero in hero_list %}
+                    
+                    {% csrf_token %} {% for news in news_list %}
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card h-100 post">
-                            <a href="#" class="thumbnailcontainer">
-                                <img class="card-img-top" src={{hero.thumbnail}} alt="">
+                            <a href="#" class="newscontainer">
+                                <img class="card-img-top" src={{news.image}} alt="">
                             </a>
                             <div class="card-body" style="height:200px; overflow:hidden">
-                                <h4 class="card-title">
-                                    <a href="#">{{hero.name}}</a>
-                                </h4>
-                                <h5>{{hero.series.0.name}}</h5>
-                                <div class="post-content">
-                                    <p class="card-text">{{hero.description}}</p>
-                                </div>
-                            </div>
-                            <div class="card-footer read-more-block">
-                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                <h5 class="card-title">
+                                    <a href="#">{{news.title}}</a>
+                                </h5>
+                                <p><i>{{news.date}}</i></p>
                             </div>
                         </div>
                     </div>
-    
+
                     {% endfor %}
-                    
 
                 </div>
                 <!-- /.row -->
